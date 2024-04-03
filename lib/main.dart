@@ -1,4 +1,6 @@
+// main.dart
 import 'package:flutter/material.dart';
+import 'MeditationTimerScreen.dart'; // Import the new screen
 
 void main() {
   runApp(TranquilMindApp());
@@ -27,7 +29,7 @@ class HomeScreen extends StatelessWidget {
         title: Text('TranquilMind'),
       ),
       body: Container(
-        padding: EdgeInsets.fromLTRB(16.0, 40.0, 16.0, 16.0), // Adjusted top padding for some margin from the top
+        padding: EdgeInsets.fromLTRB(16.0, 40.0, 16.0, 16.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topCenter,
@@ -54,33 +56,33 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 4.0), // Adjust the gap between "Welcome to" and "TranquilMind"
-            Container( // Wrap with Container and adjust margin
-              margin: EdgeInsets.only(bottom: 8.0), // Adjust margin to remove spacing between title and buttons
-              child: Text(
-                'TranquilMind',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blueGrey[300], // Changed the color to light grey
-                  shadows: [
-                    Shadow(
-                      color: Colors.black.withOpacity(0.5),
-                      blurRadius: 2,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
+            SizedBox(height: 4.0),
+            Text(
+              'TranquilMind',
+              style: TextStyle(
+                fontSize: 40.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueGrey[300],
+                shadows: [
+                  Shadow(
+                    color: Colors.black.withOpacity(0.5),
+                    blurRadius: 2,
+                    offset: Offset(0, 2),
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 120.0), // Adjust the gap between "TranquilMind" and buttons
+            SizedBox(height: 120.0),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 ElevatedButton.icon(
                   onPressed: () {
-                    // Navigate to "Meditate Your Own" screen
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MeditationTimerScreen()),
+                    );
                   },
                   icon: Icon(Icons.self_improvement),
                   label: Text(
@@ -98,7 +100,7 @@ class HomeScreen extends StatelessWidget {
                     elevation: 5,
                   ),
                 ),
-                SizedBox(height: 20.0), // Adjust the gap between buttons if needed
+                SizedBox(height: 20.0),
                 ElevatedButton.icon(
                   onPressed: () {
                     // Navigate to "Guided OM Chants" screen
@@ -119,7 +121,7 @@ class HomeScreen extends StatelessWidget {
                     elevation: 5,
                   ),
                 ),
-                SizedBox(height: 20.0), // Adjust the gap between buttons if needed
+                SizedBox(height: 20.0),
                 ElevatedButton.icon(
                   onPressed: () {
                     // Navigate to "Deep Relaxation Body Scan" screen
